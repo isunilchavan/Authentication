@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AutoLogout from "../AutoLogout/AutoLogout";
 
 const AuthContext = React.createContext({
   token: "",
@@ -32,6 +33,7 @@ export const AuthContextProvider = (props) => {
   return (
     <AuthContext.Provider value={contextValue}>
       {props.children}
+      {userLoggedIn && <AutoLogout />}
     </AuthContext.Provider>
   );
 };
